@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client';
-import { randomUUID } from 'crypto';
+import { PrismaClient } from "@prisma/client";
+import { randomUUID } from "crypto";
 
 export class Users {
   id?: string;

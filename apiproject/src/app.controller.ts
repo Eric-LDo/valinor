@@ -1,7 +1,7 @@
-import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
-import { Users } from './models/user.service';
+import { Controller, Delete, Get, Post, Put } from "@nestjs/common";
+import { Users } from "./models/user.service";
 
-@Controller('/user')
+@Controller("/user")
 export class AppController {
   @Get()
   async getUsers() {
@@ -25,7 +25,7 @@ export class AppController {
       }
     };
   }
-  @Put(':id')
+  @Put(":id")
   async putUser(request: any) {
     const user = new Users(
       request.body.name,
@@ -34,7 +34,7 @@ export class AppController {
     );
     user.putUser(request.params.id, user);
   }
-  @Delete(':id')
+  @Delete(":id")
   async deleteUser(request: any) {
     new Users().deleteUser(request.params.id);
   }
