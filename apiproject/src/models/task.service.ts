@@ -43,6 +43,7 @@ export class Task {
   }
   async postTask(task: Task) {
     const prisma = new PrismaService();
+    console.log(task);
     const newTask = await prisma.tesks.create({
       data: {
         id: task.id,

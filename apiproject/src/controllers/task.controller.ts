@@ -6,8 +6,19 @@ import { Task } from "src/models/task.service";
 export class TaskController {
   @Post()
   async postTask(@Body() body: Task) {
-    return await new Task().postTask(body);
+    console.log(body);
+    const task = new Task(
+      "",
+      body.title,
+      body.description,
+      body.userId,
+      body.status,
+      null
+    );
+    console.log(task);
+    return await new Task().postTask(task);
   }
+
   @Get("/:id")
   async getTasks(@Param("id") id: string) {
     return await new Task().getTasksByUserId(id);

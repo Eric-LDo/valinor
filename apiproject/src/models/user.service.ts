@@ -12,11 +12,6 @@ export class Users {
     this.email = email;
     this.password = password;
   }
-  async getUsers() {
-    const prisma = new PrismaService();
-    const users = await prisma.users.findMany();
-    return users;
-  }
   async postUser(user: Users) {
     const prisma = new PrismaService();
     const newUser = await prisma.users.create({

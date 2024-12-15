@@ -13,13 +13,9 @@ import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 @Controller("/user")
 export class UserController {
-  @Get()
-  async getUsers() {
-    return await new Users().getUsers();
-  }
   @Post()
   async postUsers(@Body() body: Users) {
-    const user = new Users(body.name, body.email, body.password);
+    const user = new Users(null, body.name, body.email, body.password);
     return await new Users().postUser(user);
   }
   @Put("/:id")
@@ -44,7 +40,7 @@ export class UserController {
   async deleteUser(@Param("id") id: string) {
     return await new Users().deleteUser(id);
   }
-  @Post("/login")
+  @Get("/login")
   async login(@Body() body: Users) {
     return await new Users().login(body.email, body.password);
   }
