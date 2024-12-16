@@ -10,5 +10,5 @@ import { BtnloginComponent } from "../btnlogin/btnlogin.component";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
+  
 }

@@ -1,3 +1,9 @@
-:root{
-    --collor--blue: rgb(23, 23, 148);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'Monstserrat';
+    src: url(assets/fonts/Montserrat-VariableFont_wght.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
