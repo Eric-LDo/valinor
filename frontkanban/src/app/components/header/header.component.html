@@ -1,7 +1,12 @@
 <header class="w-full flex justify-between items-center p-4  shadow-md fixed top-0 z-10 bg-white">
     <app-logofild/>
-    <h1 class="font-bold  hidden md:block text-3xl text-blue-500">
+    <h1 class="title-1 text-center">
         Kanban Board
     </h1>
-    <a href="/home"><app-btnlogin/></a>
+    <app-btn 
+        text="Entrar"
+        (click)="loginComponent.toggleShowThis()"
+    />
+    
 </header>
+<app-login #loginComponent/>

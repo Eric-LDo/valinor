@@ -12,11 +12,17 @@
       <p class="text-white md:text-slate-700 text-sm">
         Chega de se frustrar por falta de organização, faça logo o seu parte da turma mais diciplinada do pais.
       </p>
-
-      <app-btn >Registe-se Agora</app-btn>
-    </div>
+      <app-btn
+        text="Registe-se agora"
+        type="button"
+        (click)="registerComponent.toggleShowThis()"
+      />
+      
+    </div> 
     <div class="w-full hidden md:block h-full bg-blue-500">
       <img class="w-full h-full" src="home-persona.png" alt="">
     </div>
   </section>
 </main>
+<app-register #registerComponent/>
+
