@@ -8,6 +8,7 @@ import {  faPlus} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddTasksComponent } from "../../components/add-tasks/add-tasks.component";
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 
 
@@ -26,6 +27,7 @@ export class KanbanComponent implements OnInit {
   name?: string
   tasks: void | TaskModule[] = [];
   class: string = "w-full h-full mt-6"
+  router: Router = new Router();
   style = {
     'background-color': '#fff',
     'color': '#000',
@@ -87,8 +89,11 @@ export class KanbanComponent implements OnInit {
     )
     this.onTaskEdited(updatedTask);
   }
-  async logout(){
-    
+  async logout() {
+    console.log('Logging out...');
+    await this.router.navigate(['/']);
+    console.log('Logged out.');
+    localStorage.removeItem('user'); 
   }
 
   get tasksToDo(): TaskModule[] {

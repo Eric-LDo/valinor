@@ -29,8 +29,6 @@ export class LoginComponent {
     const email:string = String(formData.get('email'));
     const password:string = String(formData.get('password'));
     this.auth.login(email, password);
-    
-
   }
   toggleShowThis(){
     this.showthis=!this.showthis
