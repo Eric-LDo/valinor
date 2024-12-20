@@ -2,7 +2,6 @@ import {
   Body,
   Controller,
   Delete,
-  Get,
   NotFoundException,
   Param,
   Post,
@@ -40,7 +39,7 @@ export class UserController {
   async deleteUser(@Param("id") id: string) {
     return await new Users().deleteUser(id);
   }
-  @Get("/login")
+  @Post("/login")
   async login(@Body() body: Users) {
     return await new Users().login(body.email, body.password);
   }

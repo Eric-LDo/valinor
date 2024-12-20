@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
     "name": "John Doe2",
-    "email": "john.doe4@example.com",
+    "email": "john.doe5@example.com",
     "password": "password123"
 }
 
@@ -23,12 +23,12 @@ DELETE http://localhost:3333/user/48ba6b9d-ef71-45be-a5fd-f12cbc8b795c
 
 ###
 ###Login
-GET  http://localhost:3333/user/login
+POST  http://localhost:3333/user/login
 Content-Type: application/json
 
 {
-    "email": "john.doe@example.com",
-    "password": "password123"
+    "email": "teste@exemplo.us",
+    "password": "asdfa"
 }
 
 ### Tasks
