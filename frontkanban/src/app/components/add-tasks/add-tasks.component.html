@@ -1,0 +1,34 @@
+@if (showthis) {
+    <app-bg>
+        <app-card
+            title="Adicione uma tarefa"
+            (close)="toggleShowthis()"
+        >
+            <form [action]=""
+             class="flex flex-col justify-center items-center gap-2">
+                <app-input-title/>
+                <app-input-textarea/>
+                <div class="flex flex-row justify-center items-center gap-2">
+                    <div class="flex flex-row justify-center  items-center gap-2">
+                        <p-radiobutton  inputId="size_large" name="progress" value="1" size="small" checked="checked" />
+                        <label for="size_large" class="text-black">To-do</label>
+                    </div>
+                    <div class="flex flex-row justify-center  items-center gap-2">
+                        <p-radiobutton  inputId="size_large" name="progress" value="1" size="small" class="" />
+                        <label for="size_large" class="text-black">In-Progress</label>
+                    </div>
+                    <div class="flex flex-row justify-center  items-center gap-2">
+                        <p-radiobutton  inputId="size_large" name="progress" value="1" size="small" class="" />
+                        <label for="size_large" class="text-black">Done</label>
+                    </div>
+                </div>
+                <app-btn
+                    text="Adicionar"
+                    type="submit"
+                />
+            </form>
+
+        </app-card>
+
+    </app-bg>
+}

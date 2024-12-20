@@ -6,43 +6,9 @@
   class="pt-[69px] w-full flex items-center justify-between flex-col md:flex-row h-screen bg-white gap-2 p-2"
 >
   <p-card [class]="class" header="To-do" [style]="style">
-    <p-accordion [value]="0" [style]="style">
-      @for(task of tasks; track task.id){
-      <p-accordion-panel [value]="[]" [style]="style">
-        <p-accordion-header [style]="style">
-          {{ task.title }}
-        </p-accordion-header>
-        <p-accordion-content>
-          <div class="-mx-5 -mb-5 mt-4 bg-white text-black flex flex-col gap-2 justify-center items-center">
-            <p class="">
-              {{ task.description }}
-            </p>
-            <div>
-              <ul class="none flex flex-row gap-2">
-                
-                <li>
-                    <label for="To-do">To-do
-                        <input name="progress" type="radio" value="To-do" checked="checked">
-                    </label>
-                </li>
-                <li>
-                    <label for="in-progress">In Progress
-                        <input type="radio" name="progress" value="in-progress">
-                    </label>
-                </li>
-                <li>
-                    <label for="done">Done
-                        <input type="radio" name="progress" value="done">
-                    </label>
-                </li>                
-              </ul>
-            </div>
-          </div>
-        </p-accordion-content>
-      </p-accordion-panel>
-
-      }
-    </p-accordion>
+    <app-tasks
+        [tasks]="tasks || []"
+    />
   </p-card>
   <p-card [class]="class" header="In Progress" [style]="style"> </p-card>
   <p-card [class]="class" header="Done" [style]="style"> </p-card>

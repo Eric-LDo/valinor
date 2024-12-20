@@ -1,0 +1,46 @@
+<p-accordion [value]="0" [style]="style">
+  @for(task of tasks; track task.id){
+  <p-accordion-panel [value]="[]" [style]="style">
+    <p-accordion-header [style]="style">
+      {{ task.title }}
+    </p-accordion-header>
+    <p-accordion-content>
+      <div
+        class="-mx-5 -mb-5 mt-4 bg-white text-black flex flex-col gap-2 justify-center items-center"
+      >
+        <p class="">
+          {{ task.description }}
+        </p>
+        <div>
+          <ul class="none flex flex-row gap-2">
+            <li class="border-r-2 border-solid border-black px-3 py-1">
+              <label for="To-do"
+                >To-do
+                <input
+                  type="radio"
+                  [name]="task.id"
+                  value="To-do"
+                  checked="checked"
+                />
+              </label>
+            </li>
+            <li class="border-r-2 border-solid border-black px-3 py-1">
+              <label for="in-progress"
+                >In Progress
+                <input type="radio" [name]="task.id" value="in-progress" />
+              </label>
+            </li>
+            <li calss="px-3 py-1">
+              <label for="done"
+                >Done
+                <input type="radio" [name]="task.id" value="done" />
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </p-accordion-content>
+  </p-accordion-panel>
+
+  }
+</p-accordion>

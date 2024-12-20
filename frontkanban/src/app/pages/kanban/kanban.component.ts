@@ -5,6 +5,7 @@ import { AuthService} from '../../services/auth.service';
 import { UserModule } from '../../modules/user/user.module';
 import { TaskModule } from '../../modules/task/task.module';
 import {AccordionPanel, Accordion, AccordionHeader, AccordionContent } from 'primeng/accordion';
+import { TasksComponent } from '../../components/tasks/tasks.component';
 
 
 
@@ -12,7 +13,7 @@ import {AccordionPanel, Accordion, AccordionHeader, AccordionContent } from 'pri
 
 @Component({
   selector: 'app-kanban',
-  imports: [HeaderKanbanComponent, Card,AccordionPanel, Accordion, AccordionHeader, AccordionContent],
+  imports: [HeaderKanbanComponent, Card, TasksComponent],
   standalone: true,
   providers: [],
   templateUrl: './kanban.component.html',

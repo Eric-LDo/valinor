@@ -1,12 +1,18 @@
-<header class="w-full flex justify-between items-center p-4  border shadow-md fixed top-0 left-0 z-10 bg-white">
-    <app-logofild/>
-    <nav>
-        <ul>
-            <li>
-                <ng-content/>
-            </li>
-        </ul>
-    </nav>
-    <div></div>
-    
+<header
+  class="w-full flex justify-between items-center p-4 border shadow-md fixed top-0 left-0 z-10 bg-white"
+>
+  <app-logofild />
+  <nav>
+    <ul>
+      <li>
+        <ng-content />
+      </li>
+    </ul>
+  </nav>
+  <div class="w-10 h-10 bg-blue-500 hover:bg-blue-600 cursor-pointer rounded-full flex justify-center items-center shadow-xl"
+  (click)="addTaskComponent.toggleShowthis()">
+    <fa-icon [icon]="faPlus" class="text-white text-2xl" />
+  </div>
 </header>
+    <app-add-tasks #addTaskComponent/>
+
