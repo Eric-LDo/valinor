@@ -2,14 +2,14 @@
     <app-bg>
         <app-card
             title="Adicione uma tarefa"
-            (close)="toggleShowthis()"
+            (close)="close()"
         >
             <form 
-             (submit)="submitAddTask($event)"
+             (submit)="submitEditTask($event)"
              class="flex flex-col justify-center items-center gap-2">
-                <app-input-title/>
-                <app-input-textarea/>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-2">
+                <app-input-title [value]="title"/>
+                <app-input-textarea [value]="description"/>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-2" >
                     
                     <div class="flex flex-row justify-center  items-center gap-2">
                         <input type="radio" id="todo" name="status" value="{{1}}" size="small" checked="checked" />
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <app-btn
-                    text="Adicionar"
+                    text="Editar"
                     type="submit"
                 />
             </form>

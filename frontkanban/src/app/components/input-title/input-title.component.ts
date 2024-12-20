@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { InputComponent } from '../input/input.component';
 
 @Component({
@@ -8,5 +8,5 @@ import { InputComponent } from '../input/input.component';
   styleUrl: './input-title.component.css'
 })
 export class InputTitleComponent {
-
+  @Input() value?:string
 }

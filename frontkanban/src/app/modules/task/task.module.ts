@@ -1,10 +1,11 @@
-import { Inject, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef, EventEmitter, Inject, NgModule, Output } from '@angular/core';
+
 
 @NgModule({
   declarations: [],
 })
 export class TaskModule {
+  @Output() taskCreated = new EventEmitter<TaskModule>();
   id?: string;
   title?: string;
   description?: string;
@@ -18,6 +19,7 @@ export class TaskModule {
     @Inject('userId') userId?: string,
     @Inject('status') status?: number,
     @Inject('data') data?: Date,
+    private cd?: ChangeDetectorRef
   ) {
     this.id = id ? id : '';
     this.title = title;
@@ -26,42 +28,62 @@ export class TaskModule {
     this.status = status;
     this.data = data ? data : undefined;
   }
-  getId(): string {
-    return this.id ? this.id : '';
+  async postTask(title: string, description: string, status: number, userId :string) : Promise<TaskModule> {
+    return await fetch('http://localhost:3333/task', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: '',
+        title: title,
+        description: description,
+        status: status,
+        userId: userId,
+        data: null
+      }),
+    })
+      .then(response => response.json())
+      .then(data => { return data; });
   }
-  getTitle(): string {
-    return this.title ? this.title : '';
-  }
-  getDescription(): string {
-    return this.description ? this.description : '';
-  }
-  getUserId(): string {
-    return this.userId ? this.userId : '';
-  }
-  getStatus(): number {
-    return this.status ? this.status : 0;
-  }
-  getData(): Date {
-    return this.data ? this.data : new Date();
-  }
-  setId(id: string): void {
-    this.id = id;
-  }
-  setTitle(title: string): void {
-    this.title = title;
-  }
-  setDescription(description: string): void {
-    this.description = description;
-  }
-  setUserId(userId: string): void {
-    this.userId = userId;
-  }
-  setStatus(status: number): void {
-    this.status = status;
-  }
-  setData(data: Date): void {
-    this.data = data;
-  }
-  
-}
 
+
+  async putTask(task: TaskModule) {
+    console.log('entrou no put')
+    await fetch(`http://localhost:3333/task/${task.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(task),
+    })
+    .then((response) => {
+      console.log('entrou no then1')
+      return response.json()})
+    .then((data: TaskModule) => {
+      console.log('Success:', data);
+      
+      return data;
+    })
+
+    .catch((error) => {
+    console.error('Error:', error);
+    });
+  
+  }
+  async deleteTask(id?: string) {
+    console.log('entrou no delite')
+    await fetch(`http://localhost:3333/task/${id}`, {
+      method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    })
+    console.log('saiu do delete')
+  
+  }
+}
